@@ -1,10 +1,10 @@
 # ansible-sap-install
 Ansible module to install sap products on SLES
 
-Exmpla playbook:
+Example playbook:
 
-'''
----
+
+```
 - name: Install SAP products
   hosts: all
   become: yes
@@ -26,7 +26,8 @@ Exmpla playbook:
         state: present
         part_type: primary
         fs_type: linux-lvm
-        size: 160GiB
+        start: 0%
+        end: 100%
 
     - name: Create physical volume (PV)
       lvg:
@@ -79,7 +80,7 @@ Exmpla playbook:
         dev: /dev/sap/usrsap
 
     - name: Create mount points for the LVs
-      file:
+      file:```
         path: "{{ item }}"
         state: directory
       loop:
@@ -118,5 +119,5 @@ Exmpla playbook:
         xs_routing_mode: "{{ xs_routing_mode }}"
         xs_domain_name: "{{ xs_domain_name }}"
         product_source: "{{ product_source }}"
+```
 
-'''
