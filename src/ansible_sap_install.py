@@ -62,7 +62,8 @@ EXAMPLES = '''
         state: present
         part_type: primary
         fs_type: linux-lvm
-        size: 160GiB
+        start: 0%
+        end: 100%
 
     - name: Create physical volume (PV)
       lvg:
